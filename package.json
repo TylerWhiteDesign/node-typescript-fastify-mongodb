@@ -31,7 +31,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "yarn eslint"
+            "pre-commit": "yarn eslint; yarn prettier --check"
         }
     },
     "packageManager": "yarn@4.5.1"
