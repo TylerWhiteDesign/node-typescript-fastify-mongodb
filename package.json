@@ -1,0 +1,38 @@
+{
+    "name": "node-webservice",
+    "version": "1.0.0",
+    "description": "A foundation for building your node.js webservice.",
+    "main": "app.js",
+    "engines": {
+        "node": ">=22.11.0"
+    },
+    "scripts": {
+        "build": "tsc",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "npx tsx src/app.ts",
+        "dev": "npx tsx --env-file=.env --watch src/app.ts"
+    },
+    "type": "module",
+    "author": "Tyler White",
+    "license": "ISC",
+    "dependencies": {
+        "fastify": "^5.1.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.14.0",
+        "@types/eslint__js": "^8.42.3",
+        "@types/node": "^22.8.6",
+        "eslint": "^9.14.0",
+        "husky": "^9.1.6",
+        "prettier": "3.3.3",
+        "tsx": "^4.19.2",
+        "typescript": "^5.6.3",
+        "typescript-eslint": "^8.12.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn eslint"
+        }
+    },
+    "packageManager": "yarn@4.5.1"
+}
