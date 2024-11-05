@@ -1,11 +1,28 @@
 import Fastify from 'fastify'
-import firstRoute from './routes/ourFirstRoute.js'
+import routes from './routes/index.js'
+import decorateReply from './middleware/decorateReply.js'
+
+const envToLogger = {
+    development: {
+        transport: {
+            target: 'pino-pretty',
+            options: {
+                translateTime: 'HH:MM:ss Z',
+                ignore: 'pid,hostname',
+            },
+        },
+    },
+    production: true,
+    test: true,
+}
 
 const fastify = Fastify({
-    logger: true,
+    logger:
+        envToLogger[process.env.NODE_ENV as keyof typeof envToLogger] ?? true,
 })
 
-fastify.register(firstRoute)
+decorateReply(fastify)
+fastify.register(routes)
 
 const start = async () => {
     try {

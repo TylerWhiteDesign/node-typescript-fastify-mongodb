@@ -7,7 +7,6 @@
         "node": ">=22.11.0"
     },
     "scripts": {
-        "build": "tsc",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "npx tsx src/app.ts",
         "dev": "npx tsx --env-file=.env --watch src/app.ts"
@@ -24,6 +23,7 @@
         "@types/node": "^22.8.6",
         "eslint": "^9.14.0",
         "husky": "^9.1.6",
+        "pino-pretty": "^11.3.0",
         "prettier": "3.3.3",
         "tsx": "^4.19.2",
         "typescript": "^5.6.3",
