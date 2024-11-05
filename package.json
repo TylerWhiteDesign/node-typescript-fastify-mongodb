@@ -15,7 +15,8 @@
     "author": "Tyler White",
     "license": "ISC",
     "dependencies": {
-        "fastify": "^5.1.0"
+        "fastify": "^5.1.0",
+        "mongoose": "^8.8.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.14.0",

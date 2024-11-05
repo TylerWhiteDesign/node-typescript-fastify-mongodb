@@ -1,6 +1,4 @@
 import Fastify from 'fastify'
-import routes from './routes/index.js'
-import decorateReply from './middleware/decorateReply.js'
 
 const envToLogger = {
     development: {
@@ -21,8 +19,11 @@ const fastify = Fastify({
         envToLogger[process.env.NODE_ENV as keyof typeof envToLogger] ?? true,
 })
 
-decorateReply(fastify)
-fastify.register(routes)
+fastify.register(import('./lib/database.js'))
+fastify.register(import('./routes/index.js'))
+
+import sendError from './middleware/sendError.js'
+fastify.decorateReply('sendError', sendError)
 
 const start = async () => {
     try {

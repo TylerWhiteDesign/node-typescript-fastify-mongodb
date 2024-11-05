@@ -2,7 +2,8 @@ import { FastifyInstance } from 'fastify'
 
 export default function (fastify: FastifyInstance) {
     Object.values({
-        colors: import('./colors/index.js'),
+        get: import('./get.js'),
+        post: import('./post.js'),
     }).forEach((route) => {
         fastify.register(route)
     })
