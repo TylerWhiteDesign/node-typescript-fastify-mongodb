@@ -1,9 +1,9 @@
-import { FastifyInstance, RouteShorthandOptions, FastifyRequest } from 'fastify'
+import { FastifyInstance, RouteShorthandOptions } from 'fastify'
 import authorize from '../../middleware/authorize.js'
 import listMany from '../../controllers/api/colors/listMany.js'
 import { IColor } from '../../models/index.js'
 
-const getOpts: RouteShorthandOptions = {
+const opts: RouteShorthandOptions = {
     schema: {
         querystring: {
             type: 'object',
@@ -35,11 +35,15 @@ const getOpts: RouteShorthandOptions = {
     preValidation: authorize,
 }
 
-export default function (fastify: FastifyInstance) {
-    fastify.get('/color', getOpts, async (request: FastifyRequest) => {
-        const query = request.query as IColor
+export default function get(fastify: FastifyInstance) {
+    fastify.get<{
+        Querystring: IColor
+        Reply: { result: IColor[] }
+    }>('/color', opts, async (request) => {
+        const query = request.query
 
         const colors = await listMany(query)
+
         return { result: colors }
     })
 }

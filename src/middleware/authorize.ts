@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyReply, HookHandlerDoneFunction } from 'fastify'
 import { ErrorCode } from '../lib/constants.js'
 
-function authorize(
+export default function authorize(
     request: FastifyRequest,
     reply: FastifyReply,
     done: HookHandlerDoneFunction
@@ -12,5 +12,3 @@ function authorize(
     }
     done()
 }
-
-export default authorize

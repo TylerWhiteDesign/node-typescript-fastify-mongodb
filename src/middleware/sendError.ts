@@ -1,7 +1,7 @@
 import { FastifyReply } from 'fastify'
 import { ErrorCode } from '../lib/constants.js'
 
-export default function (
+export default function sendError(
     this: FastifyReply,
     message: string,
     code?: ErrorCode

@@ -32,7 +32,7 @@ const postOpts: RouteShorthandOptions = {
     preValidation: authorize,
 }
 
-export default function (fastify: FastifyInstance) {
+export default function post(fastify: FastifyInstance) {
     fastify.post('/color', postOpts, async (request: FastifyRequest) => {
         const object = request.body as IColor
         const color = await createOne(object)
