@@ -1,13 +1,13 @@
 import { FastifyInstance, RouteShorthandOptions } from 'fastify'
 import authorize from '../../middleware/authorize.js'
-import createOne from '../../controllers/api/colors/createOne.js'
-import { IColor } from '../../models/index.js'
+import createOne from '../../controllers/api/shapes/createOne.js'
+import { IShape } from '../../models/index.js'
 
 const postOpts: RouteShorthandOptions = {
     schema: {
-        body: { $ref: 'Color' },
+        body: { $ref: 'Shape' },
         response: {
-            200: { $ref: 'Color' },
+            200: { $ref: 'Shape' },
         },
     },
     preValidation: authorize,
@@ -15,12 +15,12 @@ const postOpts: RouteShorthandOptions = {
 
 export default function post(fastify: FastifyInstance) {
     fastify.post<{
-        Body: IColor
-        Reply: IColor
-    }>('/colors', postOpts, async (request) => {
+        Body: IShape
+        Reply: IShape
+    }>('/shapes', postOpts, async (request) => {
         const object = request.body
-        const color = await createOne(object)
+        const shape = await createOne(object)
 
-        return color
+        return shape
     })
 }
