@@ -1,8 +1,8 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Document } from 'mongoose'
 import decorate from './decorations.js'
 import { IColor } from '../color/schema.js'
 
-interface IShape {
+interface IShape extends Document {
     size: string
     color: IColor
 }
