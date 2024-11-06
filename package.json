@@ -1,5 +1,5 @@
 {
-    "name": "node-typescript-fastify-mongodb",
+    "name": "node-typescript-fastify-mongodb-test",
     "version": "1.0.0",
     "description": "A foundation for building your node.js webservice.",
     "main": "app.js",
