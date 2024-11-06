@@ -4,15 +4,15 @@ import * as Shapes from './shapes/index.js'
 
 export default function (fastify: FastifyInstance) {
     Object.values({
-        Color: Colors.schema,
-        Shape: Shapes.schema,
+        Colors: Colors.schema,
+        Shapes: Shapes.schema,
     }).forEach((schema) => {
         fastify.addSchema(schema)
     })
 
     Object.values({
-        colors: Colors.routes,
-        shapes: Shapes.routes,
+        Colors: Colors.routes,
+        Shapes: Shapes.routes,
     }).forEach((route) => {
         fastify.register(route)
     })

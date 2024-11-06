@@ -10,4 +10,4 @@ const routes = function (fastify: FastifyInstance) {
 }
 
 export { routes }
-export * from './schemas.js'
+export * from './schema.js'

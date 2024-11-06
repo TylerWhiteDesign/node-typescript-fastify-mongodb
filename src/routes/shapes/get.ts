@@ -21,7 +21,6 @@ export default function get(fastify: FastifyInstance) {
         Reply: IShape[]
     }>('/shapes', opts, async () => {
         const shapes = await listAll()
-
         return shapes
     })
 }
