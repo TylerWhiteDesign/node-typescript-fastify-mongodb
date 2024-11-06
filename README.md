@@ -6,7 +6,7 @@ To get this starter project running:
 
 ```sh
 NODE_ENV=development
-MONGODB_URI=mongodb://localhost:27017/node-webservice`
+MONGODB_URI=mongodb://localhost:27017/node-webservice
 ```
 
 2. `yarn install`
