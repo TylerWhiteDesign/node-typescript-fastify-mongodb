@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import decorations from './decorations.js'
+import decorate from './decorations.js'
 import { IColor } from '../color/schema.js'
 
 interface IShape {
@@ -24,7 +24,7 @@ const schema = new Schema(
 )
 
 schema.index({ size: 1 }, { sparse: true })
-decorations(schema)
+decorate(schema)
 
 const Shape = model<IShape>('Shape', schema)
 
