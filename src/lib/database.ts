@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify'
 import mongoose from 'mongoose'
-import { Env } from './constants.js'
+import { Env, Environment } from './constants.js'
 
 export default async function (fastify: FastifyInstance) {
     try {
@@ -24,7 +24,7 @@ export default async function (fastify: FastifyInstance) {
         if (!uri) {
             throw new Error('MongoDB URI not found')
         }
-        mongoose.set('autoIndex', false)
+        mongoose.set('autoIndex', Env.environment === Environment.development)
         await mongoose.connect(uri)
     } catch (error) {
         fastify.log.error(
